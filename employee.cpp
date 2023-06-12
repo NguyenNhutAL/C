@@ -1,3 +1,9 @@
+/*
+*File: employee.cpp
+*Author: Nguyen Minh Nhut
+*Date: 11/06/2023
+*Description: manage hotel employee
+*/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -33,7 +39,10 @@ typedef struct{
     typeDate day;
     typeStatus status;
 }Schedule;
-
+/*
+*Class: Employee
+*Description: This class represents a basic implementation of a Empployee object.
+*/
 class Employee{
     private:
         string name;
@@ -53,7 +62,16 @@ class Employee{
         void setPosition(jobPosition position);
         void setSchedule(Schedule schedule);
 };
-
+/*
+*Contructor: Employee
+*Discription: This constructor initializes a new instance of the Employee class.
+*Input:
+*   nameEmployee: name of employees
+*   phoneNumberEmployee: phone numbers of employees
+*   positionEmployee: work position of Employee
+*   scheduleEmployee: schedule of Employee
+*   output: none
+*/
 Employee::Employee(string nameEmployee, string phoneNumberEmployee, jobPosition positionEmployee, Schedule scheduleEmployee){
     Employee::name= nameEmployee;
     Employee::phoneNumber= phoneNumberEmployee;
@@ -64,39 +82,90 @@ Employee::Employee(string nameEmployee, string phoneNumberEmployee, jobPosition 
     id++;
     
 }
-
+/*
+*Function: getName
+*Description: This function returns name of current Employee
+*Output: name of current Employee
+*/
 string Employee::getName(){
     return this->name;
 }
-
+/*
+*Function: getPhoneNumber
+*Description: This function returns phoneNumber of current Employee
+*Output: phoneNumber of current Employee
+*/
 string Employee::getPhoneNumber(){
     return this->phoneNumber;
 }
-
+/*
+*Function: getPosition
+*Description: This function returns position of current Employee
+*Output: position of current Employee
+*/
 jobPosition Employee::getPosition(){
     return this->position;
 }
-
+/*
+*Function: getSchedule
+*Description: This function returns schedule of current Employee
+*Output: schedule of current Employee
+*/
 Schedule Employee::getSchedule(){
     return this->schedule;
 }
-
+/*
+*Function: getID
+*Description: This function returns id of current Employee
+*Output: id of current Employee
+*/
 uint16_t Employee::getID(){
     return this->ID;
 }
-
+/*
+*Function: setName
+*Description: This function set name of current Employee
+*Input:
+    name: name of Employee
+*Output: none
+*/
 void Employee::setName(string name){
     this->name=name;
 }
+/*
+*Function: setPhoneNumber
+*Description: This function set phone number of current Employee
+*Input:
+    phone number: phone number of Employee
+*Output: none
+*/
 void Employee::setPhoneNumber(string phoneNumber){
     this->phoneNumber= phoneNumber;
 }
+/*
+*Function: setPosition
+*Description: This function set position of current Employee
+*Input:
+    position: work position of Employee
+*Output: none
+*/
 void Employee::setPosition(jobPosition position){
     this->position= position;
 }
+/*
+*Function: setSchedule
+*Description: This function set work schedule of current Employee
+*Input:
+    schedule: work schedule of Employee
+*Output: none
+*/
 void Employee::setSchedule(Schedule schedule){
     this->schedule= schedule;
 }
+/*
+*Class: EmployeeManager
+*Description: This class include mothods to manage employees.
+*/
 class EmployeeManager{
     private:
         vector<Employee> databaseEmployee;
@@ -107,9 +176,12 @@ class EmployeeManager{
         void updateEmployee();
         void displayEmployee();
 };
-
-
-
+/*
+*Function: addEmployee
+*Description: This function add new Employee into list
+*Input:none
+*Output: none
+*/
 void EmployeeManager::addEmployee(){
     string name;
     string phoneNumber;
@@ -154,7 +226,12 @@ void EmployeeManager::addEmployee(){
     databaseEmployee.push_back(newEmployee);
     cout<<"Da them nhan vien vao danh sach"<<endl;
 }
-
+/*
+*Function: removeEmployee
+*Description: This function remove Employee from list
+*Input:none
+*Output: none
+*/
 void EmployeeManager::removeEmployee(){
     uint16_t id_remove;
     cout<<"Nhap id can xoa: "; cin>>id_remove;
@@ -165,7 +242,12 @@ void EmployeeManager::removeEmployee(){
         }
     }
 }
-
+/*
+*Function: updateEmployee
+*Description: This function update informative Employee into list
+*Input:none
+*Output: none
+*/
 void EmployeeManager::updateEmployee(){
     uint16_t id_update;
     cout<<"Nhap id nhan vien can update: "; cin>>id_update;
@@ -217,7 +299,12 @@ void EmployeeManager::updateEmployee(){
         }
     }
 }
-
+/*
+*Function: displayEmployee
+*Description: This function display list of Employees
+*Input:none
+*Output: none
+*/
 void EmployeeManager::displayEmployee(){
     cout<<"---------Danh sach nhan vien------------"<<endl;
     cout<<"----------------------------------------"<<endl;
@@ -233,6 +320,12 @@ void EmployeeManager::displayEmployee(){
         cout<<"----------------------------------------"<<endl;
     }
 }
+/*
+*Constructor: EmployeeManager
+*Description: This function offer option to manage Employees
+*Input:none
+*Output: none
+*/
 EmployeeManager::EmployeeManager(){
     uint16_t option= 10;
     while(option != 0){
